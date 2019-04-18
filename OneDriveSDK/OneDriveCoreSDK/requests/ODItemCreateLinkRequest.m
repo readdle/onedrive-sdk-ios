@@ -63,6 +63,9 @@
 - (NSMutableURLRequest *)mutableRequest
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    for (ODRequestOptions *option in self.options) {
+        params[option.key] = option.value;
+    }
     params[@"type"] = self.type;
 
  
